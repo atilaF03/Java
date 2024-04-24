@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class app {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        var media = 0;
+        System.out.print("Insira a nota do aluno");
+        media = scanner.nextInt();
+
+        if (media >= 7) {
+            System.out.println("Aprovado(a)");
+        } else if (media >= 5) {
+            System.out.println("esta de recuperação");
+        } else {
+            System.out.println("Está reprovado(a)");
+        }
+    }
+}
