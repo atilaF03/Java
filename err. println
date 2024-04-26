@@ -1,0 +1,10 @@
+public class app {
+    public static void main(String[] args) {
+        // Mensagem de erro
+        System.err.println("Isso é uma mensagem de erro!");
+
+        // Outras mensagens
+        System.out.println("Isso é uma mensagem normal.");
+        System.out.println("Isso também é uma mensagem normal.");
+    }
+}
