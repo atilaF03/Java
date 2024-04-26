@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class app {
+    public static void main(String[] args) {
+        //declarando o vetor (tamanho do vetor)
+        int[] num1 = new int[5];
+        int i = 0;
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (i < 5) {
+                //preechendo um vetor.
+                System.out.println("insira um numero: ");
+                num1[i] = scanner.nextInt();
+                i++;
+
+            }
+           
+             
+            
+        }
+
+    }
+}
