@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int nota = 0;
+
+        int[] num = new int[5];
+        for (int i = 0; i < num.length; i++) {
+            System.out.println("Insira um valor");
+            num[i] = scan.nextInt();
+            // interagindo com um vetor
+            // préenchendo um vetor e em seguida exibindo.
+
+        }
+        // se declarar o novo i dentro do laço não vai acontecer erro nenhum.
+        for (int i = 0; i < num.length; i++) {
+
+            System.out.println(num[i]);
+        }
+
+    }
+}
