@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+
+        Scanner scan = new Scanner(System.in);
+        int i=0;
+        String[] nomes =new String[6];
+        String[] rg= new String[6];
+        for ( i = 1; i <=3 ; i++) {
+            System.out.print("Insira(" + i + ")nome:");
+            nomes[i]=scan.nextLine();
+            System.out.println("insira o RG");
+            rg[i]=scan.nextLine();
+        }
+        for(int cont=1;cont<=3;cont++){
+        System.out.println("o nome é "+nomes[cont]);
+        System.out.println("O RG É:"+rg[cont]);
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+}
+
