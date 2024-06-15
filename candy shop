@@ -1,0 +1,131 @@
+
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String nomeCliente = JOptionPane.showInputDialog("Digite seu nome:");
+
+		int codigo, qtd;
+		float valor = 0;
+
+		// Quantidades disponíveis em estoque
+		int estoquebrigadeiro = 20;
+		int estoquePudim = 20;
+		int estoqueBolodechocolate = 20;
+
+		// Lista para armazenar os itens no carrinho
+		List<String> carrinho = new ArrayList<>();
+
+		JOptionPane.showMessageDialog(null, "1 - Brigadeiro R$ 3,00 (estoque: " + estoquebrigadeiro + ")\n" +
+				"2 - Pudim R$ 4,00 (estoque: " + estoquePudim + ")\n" +
+				"3 - Bolo de chocolate R$ 5,00 (estoque: " + estoqueBolodechocolate + ")");
+
+		// Enquanto houver produtos disponíveis ou o cliente quiser continuar comprando
+		while (true) {
+			String codigoStr = JOptionPane.showInputDialog("Insira o código do produto (0 para sair do carrinho):");
+			codigo = Integer.parseInt(codigoStr);
+			if (codigo == 0) {
+				break; // Sair do loop se o cliente desejar sair do carrinho
+			}
+			if (codigo >= 1 && codigo <= 3) {
+				while (true) {
+					String qtdStr = JOptionPane.showInputDialog("Quantos você deseja:");
+					qtd = Integer.parseInt(qtdStr);
+
+					// Verificar se há estoque suficiente
+					switch (codigo) {
+						case 1:
+							if (qtd <= estoquebrigadeiro) {
+								valor += qtd * 3.00f;
+								estoquebrigadeiro -= qtd;
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Quantidade indisponível em estoque. Estoque atual: " + estoquebrigadeiro);
+								continue;
+							}
+							break;
+						case 2:
+							if (qtd <= estoquePudim) {
+								valor += qtd * 4.00f;
+								estoquePudim -= qtd;
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Quantidade indisponível em estoque. Estoque atual: " + estoquePudim);
+								continue;
+							}
+							break;
+						case 3:
+							if (qtd <= estoqueBolodechocolate) {
+								valor += qtd * 5.00f;
+								estoqueBolodechocolate -= qtd;
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Quantidade indisponível em estoque. Estoque atual: " + estoqueBolodechocolate);
+								continue;
+							}
+							break;
+						default:
+							JOptionPane.showMessageDialog(null, "Código inválido");
+							continue;
+					}
+					carrinho.add(qtd + " " + getCodigoNome(codigo));
+					JOptionPane.showMessageDialog(null, "Item adicionado ao carrinho.");
+					break; // Sair do loop se a quantidade for válida
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Código inválido");
+			}
+		}
+
+		// Exibir itens do carrinho e valor total
+		StringBuilder carrinhoStr = new StringBuilder("Itens no carrinho:\n");
+		for (String item : carrinho) {
+			carrinhoStr.append(item).append("\n");
+		}
+		carrinhoStr.append(String.format("Valor total: R$ %.2f\n", valor));
+		JOptionPane.showMessageDialog(null, carrinhoStr.toString());
+
+		// Escolher forma de pagamento
+		String[] opcoesPagamento = { "Débito", "Crédito" };
+		int formaPagamento = JOptionPane.showOptionDialog(null, "Escolha a forma de pagamento:",
+				"Forma de Pagamento", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+				opcoesPagamento, opcoesPagamento[0]);
+
+		// Simular pagamento
+		String pagamento = (formaPagamento == 0) ? "Débito" : "Crédito";
+		JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso via " + pagamento);
+
+		// Emitir cupom fiscal
+		StringBuilder cupomFiscal = new StringBuilder("Cupom Fiscal\n");
+		cupomFiscal.append("Cliente: ").append(nomeCliente).append("\n");
+		cupomFiscal.append(carrinhoStr);
+		cupomFiscal.append(String.format("Forma de pagamento: %s\n", pagamento));
+		JOptionPane.showMessageDialog(null, cupomFiscal.toString(), "Cupom Fiscal", JOptionPane.INFORMATION_MESSAGE);
+
+		// Exibir mensagem de envio
+		JOptionPane.showMessageDialog(null, "O pedido está sendo enviado para sua casa.");
+
+		System.exit(0);
+	}
+
+	// Função auxiliar para obter o nome do produto com base no código
+	public static String getCodigoNome(int codigo) {
+		switch (codigo) {
+			case 1:
+				return "brigadeiro";
+			case 2:
+				return "pudim";
+			case 3:
+				return "bolo de chocolate";
+			default:
+				return "desconhecido";
+		}
+
+	}
+
+}
