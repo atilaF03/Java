@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		// define um uso do objeto em java{
+		Celular celularA = new Celular();
+		// }
+		System.out.println("Insira o nome do celular:");
+		celularA.Nome = scanner.nextLine();
+		System.out.println("O tamanho da tela:");
+		celularA.TamanhoTela = scanner.nextFloat();
+		System.out.println(" O armazenamento: ");
+		celularA.Armazenamento = scanner.nextInt();
+		scanner.nextLine();// limpao cache para registrar um floar e em seguida uma string.
+
+		System.out.println("O Sistema operacional:");
+		celularA.SistemaOperacional = scanner.nextLine();
+
+
+		System.out.println("O valor:");
+		celularA.valor = scanner.nextFloat();
+
+		System.out.format(
+				" o celular é: %s\n o tamanho da tela é de %.1f\n o armazenamento é de %d GB \n e o sistema operacional é %s\n e o valor é %.1f\n",
+				celularA.Nome, celularA.TamanhoTela, celularA.Armazenamento, celularA.SistemaOperacional,
+				celularA.valor);
+
+	}
+}
