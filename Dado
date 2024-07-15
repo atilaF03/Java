@@ -1,0 +1,19 @@
+import java.util.Random;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+public class App {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		double dados6Faces = 1 + (int) (Math.random() * 6);
+		JOptionPane.showMessageDialog(null, dados6Faces);
+
+		Random gerador = new Random();// declara um gerador aleatório
+		int number = gerador.nextInt(20);// bound declara o tamanho 
+		JOptionPane.showMessageDialog(null, number);
+
+	}
+
+}
