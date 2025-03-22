@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class app {
+public class Vetores {
     public static void main(String[] args) {
 
         final int tam = 5;

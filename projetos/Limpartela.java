@@ -1,6 +1,8 @@
+package projetos;
+
 import java.util.Scanner;
 
-public class App {
+public class Limpartela {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -14,7 +16,6 @@ public class App {
 		rest = a + b;
 		limparConsole();
 		System.out.println(" a soma é " + rest);
-
 	}
 
 	public static void limparConsole() {// função limpar tela
