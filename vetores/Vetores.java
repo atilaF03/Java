@@ -2,25 +2,17 @@ import java.util.Scanner;
 
 public class Vetores {
     public static void main(String[] args) {
-
-        final int tam = 5;
-        char[] gabarito = { 'a', 'b', 'c', 'd', 'e' };
-        char[] respostas = new char[tam];
-        int nota = 0;
-       
-        Scanner scanner  = new Scanner(System.in);
-
-        for(int i= 0;i<tam;i++){
-          System.out.printf("informe a nota é:%d",i);
-          respostas[i]=scanner.nextLine().charAt(0);
+        Scanner sc = new Scanner(System.in);
+        int soma = 0;
+        int[] valores = new int[3];
+        for (int i = 0; i < valores.length; i++) {
+            System.out.println("insira um valor: ");
+            valores[i] = sc.nextInt();
+            soma += valores[i];
+            
         }
-        
-        for(int i= 0;i<tam;i++){
-            if (respostas[i]== gabarito[i]) {
-                nota++;
-            }
-        }
-        System.out.println("os acertos dos aluno:"+nota);
+        System.out.println("a media do valores: " + soma/3);
+        sc.close();
 
     }
 }
